@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shyamala Kalimuthu - Personal Profile</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- 
+    HEADER: Using <header> instead of a generic <div> 
+    because it semantically represents the top section of the page 
+    and improves accessibility for screen readers.
+  -->
+  <header>
+    <h1>Shyamala Kalimuthu</h1>
+    <!-- 
+      NAVIGATION: <nav> is used instead of <div> 
+      because it explicitly defines a navigation landmark, 
+      making it easier for assistive technologies to identify menus.
+    -->
+    <nav aria-label="Main navigation">
+      <ul>
+        <li><a href="#profile">About Me</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- 
+    MAIN CONTENT: <main> is used instead of <div> 
+    because it semantically indicates the primary content of the page.
+  -->
+  <main>
+    <!-- 
+      PROFILE SECTION: <section> is used instead of <div> 
+      because it groups related content with a clear heading.
+    -->
+    <section id="profile">
+      <h2>About Me</h2>
+      <!-- <img> includes alt text for accessibility -->
+      <img src="images/myphoto.jpeg" alt="Portrait of Shyamala Kalimuthu">
+      <p>
+        I am an educator passionate about making technical concepts accessible and teachable. 
+        My focus is on reproducible web projects, bilingual resources, and visual aids for students.
+      </p>
+    </section>
+
+    <!-- 
+      SKILLS SECTION: <section> is used instead of <div> 
+      because it represents a distinct thematic block of content.
+    -->
+    <section id="skills">
+      <h2>Skills</h2>
+      <ul>
+        <li>Systematic troubleshooting of web projects</li>
+        <li>HTML, CSS, JavaScript fundamentals</li>
+        <li>Creating visual diagrams and guides</li>
+        <li>Bilingual teaching resources</li>
+      </ul>
+    </section>
+
+    <!-- 
+      CONTACT SECTION: <section> + <address> are used instead of <div> 
+      because <address> semantically represents contact information.
+    -->
+    <section id="contact">
+      <h2>Contact</h2>
+      <address>
+        <p>Email: <a href="mailto:sham.jesa@gmail.com">sham.jesa@gmail.com</a></p>
+        <p>Phone: <a href="tel:+917867956919">+91-7867956919</a></p>
+      </address>
+    </section>
+  </main>
+
+  <!-- 
+    FOOTER: <footer> is used instead of <div> 
+    because it semantically represents the bottom section of the page 
+    and is recognized by assistive technologies as a landmark.
+  -->
+  <footer>
+    <p>&copy; 2026 Shyamala Kalimuthu | All rights reserved</p>
+    <p><a href="#top">Back to Top</a></p>
+  </footer>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shyamala Kalimuthu - Personal Profile</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body id="top">
+
+  <!-- HEADER: Semantic landmark -->
+  <header>
+    <h1>Shyamala Kalimuthu</h1>
+    <nav aria-label="Main navigation">
+      <ul>
+        <li><a href="#profile">About Me</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- MAIN CONTENT -->
+  <main>
+    <!-- PROFILE SECTION -->
+    <section id="profile">
+      <h2>About Me</h2>
+      <img src="images/myphoto.jpeg" alt="Portrait of Shyamala Kalimuthu">
+      <p>
+        I am an educator passionate about making technical concepts accessible and teachable. 
+        My focus is on reproducible web projects, bilingual resources, and visual aids for students.
+      </p>
+    </section>
+
+    <!-- SKILLS SECTION -->
+    <section id="skills">
+      <h2>Skills</h2>
+      <ul>
+        <li>Systematic troubleshooting of web projects</li>
+        <li>HTML, CSS, JavaScript fundamentals</li>
+        <li>Creating visual diagrams and guides</li>
+        <li>Bilingual teaching resources</li>
+      </ul>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section id="contact">
+      <h2>Contact</h2>
+      <address>
+        <p>Email: <a href="mailto:sham.jesa@gmail.com">sham.jesa@gmail.com</a></p>
+        <p>Phone: <a href="tel:+917867956919">+91-7867956919</a></p>
+      </address>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>&copy; 2026 Shyamala Kalimuthu | All rights reserved</p>
+    <p><a href="#top">Back to Top</a></p>
+  </footer>
+
+</body>
+</html>
