@@ -1,0 +1,13 @@
+# Linux Directory Practice
+
+pwd
+# Shows current directory
+# Example output: /home/shyamala
+
+ls
+# Lists files and folders
+# Example output: Documents Downloads Pictures Desktop
+
+cd Documents
+pwd
+# Output: /home/shyamala/Documents

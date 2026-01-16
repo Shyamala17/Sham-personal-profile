@@ -1,0 +1,83 @@
+# Linux Practice Summary
+
+## 2. Explore Directory Structure
+```bash
+pwd
+# Output: /home/shyamala
+
+ls
+# Output: Desktop  Documents  Downloads  Pictures
+
+cd /
+pwd
+# Output: /
+
+cd ~
+pwd
+# Output: /home/shyamala
+
+cd ..
+pwd
+# Output: /home
+mkdir testdir
+ls
+# Output: testdir
+
+cd testdir
+touch file1.txt
+ls
+# Output: file1.txt
+
+rm file1.txt
+ls
+# Output: (file1.txt removed)
+
+cd ..
+rmdir testdir
+ls
+# Output: (testdir removed)
+
+rm -r testdir
+# Output: (directory deleted if not empty)
+cat file1.txt
+# Output: Hello Linux!
+
+less file1.txt
+# Output: Hello Linux! (scroll, quit with q)
+
+nano file1.txt
+# Opens nano editor (Ctrl+O save, Ctrl+X exit)
+
+vim file1.txt
+# Opens vim editor (i insert, :wq save & quit)
+ls -l file1.txt
+# Output: -rw-r--r-- 1 shyamala shyamala 12 Jan 16 18:00 file1.txt
+
+chmod 644 file1.txt
+ls -l file1.txt
+# Output: -rw-r--r-- 1 shyamala shyamala 12 Jan 16 18:00 file1.txt
+
+chmod +x script.sh
+ls -l script.sh
+# Output: -rwxr-xr-x 1 shyamala shyamala 0 Jan 16 18:05 script.sh
+
+sudo chown user:user file1.txt
+ls -l file1.txt
+# Output: -rw-r--r-- 1 user user 12 Jan 16 18:00 file1.txt
+top
+# Output: Live process monitor (CPU, memory, tasks)
+
+htop
+# Output: Interactive colorful process viewer
+
+df -h
+# Output:
+Filesystem      Size  Used Avail Use% Mounted on
+/dev/sda1        25G   10G   13G  45% /
+tmpfs           2.0G  1.0M  2.0G   1% /run
+
+free -m
+# Output:
+              total        used        free      shared  buff/cache   available
+Mem:           3947        2048        1023         120         875        1700
+Swap:          2048           0        2048

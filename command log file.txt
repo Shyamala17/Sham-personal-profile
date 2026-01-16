@@ -1,0 +1,38 @@
+# 2. Explore directory structure
+pwd
+ls
+cd /
+cd ~
+cd ..
+pwd
+
+# 3. Create directories and files
+mkdir testdir
+cd testdir
+touch file1.txt
+ls
+rm file1.txt
+cd ..
+rmdir testdir
+rm -r testdir
+
+# 4. File viewing and editing
+cat file1.txt
+less file1.txt
+nano file1.txt
+vim file1.txt
+
+# 5. File permissions and ownership
+ls -l file1.txt
+chmod 644 file1.txt
+chmod +x script.sh
+chown user:user file1.txt
+
+# 6. System monitoring basics
+top
+htop
+df -h
+free -m
+
+# 7. Document commands and outputs in markdown
+# (Run commands above and copy outputs into linux_practice.md)

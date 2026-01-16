@@ -1,0 +1,23 @@
+mkdir practice_dir          # create a directory
+cd practice_dir             # move into it
+touch file1.txt file2.txt   # create empty files
+ls                          # confirm files exist
+rm file1.txt                # remove a file safely
+rmdir practice_dir          # remove empty directory
+rm -r practice_dir          # remove directory with contents (use carefully!)
+cat file2.txt               # view contents
+less file2.txt              # scroll through contents
+nano file2.txt              # edit file (simple editor)
+vim file2.txt               # edit file (advanced editor)
+ls -l                       # show permissions
+chmod 644 file2.txt         # set read/write for owner, read-only for others
+chmod +x script.sh          # add execute permission
+chown user:user file2.txt   # change ownership (requires sudo)
+top        # live process monitor
+htop       # improved monitor (install if missing: sudo apt install htop)
+df -h      # disk usage (human-readable)
+free -m    # memory usage in MB
+top        # live process monitor
+htop       # improved monitor (install if missing: sudo apt install htop)
+df -h      # disk usage (human-readable)
+free -m    # memory usage in MB
