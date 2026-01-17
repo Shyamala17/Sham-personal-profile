@@ -1,0 +1,74 @@
+/* 1. Global styles */
+body {
+  font-family: Arial, sans-serif;   /* Consistent font */
+  background-color: #f9f9f9;        /* Light background */
+  color: #333;                      /* Default text color */
+  margin: 0;                        /* Remove default margin */
+  padding: 20px;                    /* Page padding */
+}
+
+/* 2. Headers, paragraphs, lists for hierarchy */
+.title {
+  font-size: 2.5em;
+  color: darkblue;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.section-title {
+  font-size: 1.5em;
+  color: #444;
+  margin-bottom: 10px;
+}
+
+.text {
+  font-size: 18px;
+  line-height: 1.6;
+  margin-bottom: 10px;
+}
+
+.list {
+  list-style-type: square;
+  margin-left: 20px;
+}
+
+.list-item {
+  margin-bottom: 5px;
+}
+
+/* 3. Box model applied to reusable card */
+.card {
+  margin: 20px;                 /* Space outside the box */
+  padding: 15px;                /* Space inside the box */
+  border: 2px solid #ccc;       /* Border around the box */
+  background-color: #fff;       /* Content background */
+  border-radius: 8px;           /* Rounded corners */
+}
+
+/* 4. Class-based styling for buttons and highlights */
+.btn-primary {
+  background-color: #007bff;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.btn-primary:hover {
+  background-color: #0056b3;
+}
+
+.highlight {
+  color: darkred;
+  font-weight: bold;
+}
+
+/* 5. Temporary borders & background colors for debugging box model */
+/* Uncomment this block when testing spacing */
+/*
+* {
+  border: 1px dashed lightgray;
+  background-color: #eef;
+}
+*/

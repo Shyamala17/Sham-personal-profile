@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta charset="UTF-8">
+  <title>Profile Page</title>
+  <!-- Linking external CSS file -->
+  <link rel="stylesheet" href="Profile%20Page_files/style.css">
+</head>
+<body>
+  <!-- Page Header -->
+  <header class="page-header">
+    <h1 class="title">My Profile</h1>
+  </header>
+
+  <!-- About Me Section -->
+  <section class="card">
+    <h2 class="section-title">About Me</h2>
+    <p class="text">Hello! I’m learning HTML and CSS. This profile page 
+demonstrates proper spacing, the CSS box model, and reusable class-based
+ styling.</p>
+  </section>
+
+  <!-- Skills Section -->
+  <section class="card">
+    <h2 class="section-title">Skills</h2>
+    <ul class="list">
+      <li class="list-item">HTML &amp; CSS</li>
+      <li class="list-item">JavaScript Basics</li>
+      <li class="list-item">Responsive Design</li>
+    </ul>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="card">
+    <h2 class="section-title">Contact</h2>
+    <p class="text">Email: <span class="highlight">example@email.com</span></p>
+    <button class="btn-primary">Follow</button>
+  </section>
+<!-- Code injected by live-server -->
+<script>
+	// <![CDATA[  <-- For SVG support
+	if ('WebSocket' in window) {
+		(function () {
+			function refreshCSS() {
+				var sheets = [].slice.call(document.getElementsByTagName("link"));
+				var head = document.getElementsByTagName("head")[0];
+				for (var i = 0; i < sheets.length; ++i) {
+					var elem = sheets[i];
+					var parent = elem.parentElement || head;
+					parent.removeChild(elem);
+					var rel = elem.rel;
+					if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+						var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+						elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+					}
+					parent.appendChild(elem);
+				}
+			}
+			var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+			var address = protocol + window.location.host + window.location.pathname + '/ws';
+			var socket = new WebSocket(address);
+			socket.onmessage = function (msg) {
+				if (msg.data == 'reload') window.location.reload();
+				else if (msg.data == 'refreshcss') refreshCSS();
+			};
+			if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
+				console.log('Live reload enabled.');
+				sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
+			}
+		})();
+	}
+	else {
+		console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
+	}
+	// ]]>
+</script>
+
+
+</body></html>

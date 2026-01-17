@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Profile Page</title>
+  <!-- Linking external CSS file -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Page Header -->
+  <header class="page-header">
+    <h1 class="title">My Profile</h1>
+  </header>
+
+  <!-- About Me Section -->
+  <section class="card">
+    <h2 class="section-title">About Me</h2>
+    <p class="text">Hello! I’m learning HTML and CSS. This profile page demonstrates proper spacing, the CSS box model, and reusable class-based styling.</p>
+  </section>
+
+  <!-- Skills Section -->
+  <section class="card">
+    <h2 class="section-title">Skills</h2>
+    <ul class="list">
+      <li class="list-item">HTML & CSS</li>
+      <li class="list-item">JavaScript Basics</li>
+      <li class="list-item">Responsive Design</li>
+    </ul>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="card">
+    <h2 class="section-title">Contact</h2>
+    <p class="text">Email: <span class="highlight">example@email.com</span></p>
+    <button class="btn-primary">Follow</button>
+  </section>
+</body>
+</html>
