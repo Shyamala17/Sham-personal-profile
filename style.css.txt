@@ -1,0 +1,60 @@
+/* Navigation Bar */
+nav {
+  display: flex;                 /* enables flexbox */
+  flex-direction: row;           /* horizontal layout */
+  justify-content: space-around; /* evenly spaced links */
+  align-items: center;           /* vertically centered */
+  flex-wrap: wrap;               /* wrap links on smaller screens */
+  background: #333;
+  padding: 10px;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  padding: 8px 12px;
+  font-size: 16px;
+}
+
+/* Card Container */
+.card-container {
+  display: flex;              /* enables flexbox */
+  flex-wrap: wrap;            /* allows cards to move to next line */
+  justify-content: center;    /* center cards horizontally */
+  gap: 20px;                  /* spacing between cards */
+  margin: 20px;
+}
+
+.card {
+  flex: 1 1 250px;            /* grow, shrink, base width */
+  border: 1px solid #ccc;
+  padding: 20px;
+  border-radius: 8px;
+  background: #f9f9f9;
+  text-align: center;
+}
+
+/* Skill List */
+.skills {
+  display: flex;              /* enables flexbox */
+  flex-direction: column;     /* stack vertically */
+  align-items: flex-start;    /* align items to the left */
+  gap: 10px;                  /* spacing between items */
+  margin: 20px;
+}
+
+/* Responsive tweaks for small screens */
+@media (max-width: 600px) {
+  nav {
+    justify-content: center;  /* center nav links on mobile */
+  }
+
+  nav a {
+    display: block;           /* stack links vertically */
+    margin: 5px 0;
+  }
+
+  .card {
+    flex: 1 1 100%;           /* cards take full width on mobile */
+  }
+}
