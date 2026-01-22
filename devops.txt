@@ -1,0 +1,85 @@
+#!/bin/bash
+# ============================================================
+# Author: Shyamala
+# Date: YYYY-MM-DD
+# Purpose: Demonstrate DevOps automation tasks in Git Bash
+# Tasks:
+#   1. Create shell script file with shebang
+#   2. Print system information
+#   3. Use variables, conditionals, loops
+#   4. Automate log cleanup/backup
+#   5. Make script executable and run
+#   6. Redirect output to files
+#   7. Add comments and documentation
+# ============================================================
+
+# -------------------------------
+# Variables
+# -------------------------------
+LOG_DIR="/c/Windows/Temp"        # Example log directory in Git Bash
+BACKUP_DIR="$HOME/log_backup"    # Backup folder in home directory
+OUTPUT_FILE="$HOME/devops_output.txt"  # Redirected output file
+COUNT=0
+
+# -------------------------------
+# 2. Print System Information
+# -------------------------------
+echo "===== System Information ====="
+echo "Hostname: $(hostname)"
+echo "Operating System: $(uname -o)"
+echo "Kernel Version: $(uname -r)"
+echo "Processor Type: $(uname -p)"
+echo "Current User: $USER"
+echo "Home Directory: $HOME"
+echo "Disk Usage:"
+df -h
+echo "Memory Info:"
+free -h
+
+# -------------------------------
+# 3. Variables, Conditionals, Loops
+# -------------------------------
+echo
+echo "===== Log File Check ====="
+echo "Checking for log files in $LOG_DIR..."
+
+for file in "$LOG_DIR"/*.log; do
+    if [ -f "$file" ]; then
+        echo "Found log file: $file"
+        COUNT=$((COUNT+1))
+    fi
+done
+
+if [ $COUNT -gt 0 ]; then
+    echo "✅ Total $COUNT log files found."
+else
+    echo "ℹ️ No log files found."
+fi
+
+# -------------------------------
+# 4. Automate Log Cleanup/Backup
+# -------------------------------
+echo
+echo "===== Log Cleanup/Backup ====="
+mkdir -p "$BACKUP_DIR"
+
+if [ $COUNT -gt 0 ]; then
+    for file in "$LOG_DIR"/*.log; do
+        if [ -f "$file" ]; then
+            mv "$file" "$BACKUP_DIR"
+            echo "Moved $file to $BACKUP_DIR"
+        fi
+    done
+    echo "✅ Backup complete."
+else
+    echo "ℹ️ No files to backup."
+fi
+
+# -------------------------------
+# 6. Redirect Output to File
+# -------------------------------
+echo
+echo "===== Redirecting Output ====="
+echo "Saving script output to $OUTPUT_FILE"
+bash "$0" > "$OUTPUT_FILE"
+echo "✅ Output saved to $OUTPUT_FILE"

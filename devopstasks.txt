@@ -1,0 +1,97 @@
+<# 
+============================================================
+Author: Shyamala
+Date: YYYY-MM-DD
+Purpose: Demonstrate DevOps automation tasks in PowerShell
+Tasks:
+  1. Create script file with shebang (PowerShell equivalent)
+  2. Print system information
+  3. Use variables, conditionals, loops
+  4. Automate log cleanup/backup
+  5. Make script executable and run
+  6. Redirect output to files
+  7. Add comments and documentation
+============================================================
+#>
+
+# -------------------------------
+# 1. Shebang equivalent
+# -------------------------------
+# PowerShell doesn’t use #!/bin/bash, but this file itself is a .ps1 script.
+
+# -------------------------------
+# 2. Print System Information
+# -------------------------------
+Write-Output "===== System Information ====="
+Write-Output "Hostname: $env:COMPUTERNAME"
+Write-Output "Operating System: $((Get-CimInstance Win32_OperatingSystem).Caption)"
+Write-Output "Kernel Version: $((Get-CimInstance Win32_OperatingSystem).Version)"
+Write-Output "Processor Type: $env:PROCESSOR_ARCHITECTURE"
+Write-Output "Current User: $env:USERNAME"
+Write-Output "Home Directory: $env:USERPROFILE"
+Write-Output "Disk Usage:"
+Get-PSDrive -PSProvider FileSystem
+Write-Output "Memory Info:"
+Get-CimInstance Win32_OperatingSystem | Select-Object TotalVisibleMemorySize,FreePhysicalMemory
+
+# -------------------------------
+# 3. Variables, Conditionals, Loops
+# -------------------------------
+$LogDir = "C:\Windows\Temp"
+$BackupDir = "$env:USERPROFILE\log_backup"
+$Count = 0
+
+Write-Output "`n===== Log File Check ====="
+Write-Output "Checking for log files in $LogDir..."
+
+foreach ($file in Get-ChildItem -Path $LogDir -Filter *.log -ErrorAction SilentlyContinue) {
+    Write-Output "Found log file: $file"
+    $Count++
+}
+
+if ($Count -gt 0) {
+    Write-Output "✅ Total $Count log files found."
+} else {
+    Write-Output "ℹ️ No log files found."
+}
+
+# -------------------------------
+# 4. Automate Log Cleanup/Backup
+# -------------------------------
+Write-Output "`n===== Log Cleanup/Backup ====="
+if (-not (Test-Path $BackupDir)) {
+    New-Item -ItemType Directory -Path $BackupDir | Out-Null
+}
+
+if ($Count -gt 0) {
+    foreach ($file in Get-ChildItem -Path $LogDir -Filter *.log) {
+        Move-Item $file.FullName $BackupDir
+        Write-Output "Moved $($file.Name) to $BackupDir"
+    }
+    Write-Output "✅ Backup complete."
+} else {
+    Write-Output "ℹ️ No files to backup."
+}
+
+# -------------------------------
+# 5. Make Script Executable & Run
+# -------------------------------
+# In PowerShell, scripts run with: .\DevOpsTask.ps1
+# If blocked, set execution policy temporarily:
+# Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
+
+# -------------------------------
+# 6. Redirect Output to Files
+# -------------------------------
+$OutputFile = "$env:USERPROFILE\DevOpsOutput.txt"
+Write-Output "`n===== Redirecting Output ====="
+Write-Output "Saving script output to $OutputFile"
+# Run the script itself and redirect output
+& "$PSCommandPath" > $OutputFile
+Write-Output "✅ Output saved to $OutputFile"
+
+# -------------------------------
+# 7. Comments & Documentation
+# -------------------------------
+# This script demonstrates DevOps automation in PowerShell.
+# Deliverables: Script file, execution screenshots, redirected output file.
