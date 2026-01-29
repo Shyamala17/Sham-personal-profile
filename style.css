@@ -1,65 +1,51 @@
 body {
   font-family: Arial, sans-serif;
-  background: #f9f9f9;
-  padding: 2rem;
-  display: flex;
-  justify-content: center;
+  margin: 40px;
 }
 
-main {
-  background: #fff;
-  padding: 2rem;
-  border-radius: 8px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-  width: 100%;
-  max-width: 500px;
-}
-
-h1 {
-  text-align: center;
-  margin-bottom: 1.5rem;
-  color: #333;
+h2 {
+  margin-bottom: 20px;
 }
 
 .form-group {
-  margin-bottom: 1rem;
+  margin-bottom: 15px;
 }
 
 label {
   display: block;
-  margin-bottom: 0.5rem;
-  font-weight: bold;
+  margin-bottom: 5px;
 }
 
-input, textarea {
-  width: 100%;
-  padding: 0.75rem;
-  border: 1px solid #ccc;
+input {
+  width: 300px;
+  padding: 8px;
+  margin-bottom: 5px;
+  border: 2px solid #ccc;
   border-radius: 4px;
-  font-size: 1rem;
-}
-
-input:focus, textarea:focus {
-  border-color: #007BFF;
-  outline: none;
-}
-
-small {
-  color: #666;
-  font-size: 0.85rem;
 }
 
 button {
-  width: 100%;
-  padding: 0.75rem;
+  padding: 10px 20px;
   background: #007BFF;
-  color: #fff;
+  color: white;
   border: none;
-  border-radius: 4px;
-  font-size: 1rem;
   cursor: pointer;
+  border-radius: 4px;
 }
 
 button:hover {
   background: #0056b3;
+}
+
+.error {
+  color: red;
+  font-size: 0.9em;
+}
+
+input.invalid {
+  border: 2px solid red;
+}
+
+input.success {
+  border: 2px solid green;
 }

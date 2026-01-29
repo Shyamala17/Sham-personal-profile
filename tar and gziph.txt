@@ -1,0 +1,20 @@
+#!/bin/bash
+# === Backup Script ===
+
+# Source directory to back up
+SRC=~/backup_demo
+
+# Destination directory for backups
+DEST=~/backups
+
+# Current date for unique archive name
+DATE=$(date +%F)
+
+# Ensure destination exists
+mkdir -p $DEST
+
+# Create compressed backup archive
+tar -czvf $DEST/backup_$DATE.tar.gz $SRC
+
+# Print confirmation
+echo "Backup completed: $DEST/backup_$DATE.tar.gz"
