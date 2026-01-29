@@ -1,0 +1,93 @@
+Dockerized Node.js Application Guide
+
+📌 Project Overview
+
+This project demonstrates how to containerize a simple Node.js application using Docker. The app runs on port 3000 and responds with a message: Hello from Dockerized App!
+
+⚙️ Prerequisites
+
+Install Node.js (for local testing)
+
+Install Docker (for containerization)
+
+Visual Studio Code (recommended IDE)
+
+📂 Project Structure
+
+docker-app/
+│
+├── app.js          # Application code
+├── package.json    # Dependencies
+├── Dockerfile      # Docker instructions
+└── README.md       # Documentation
+
+🚀 Run Locally (Optional)
+
+npm install
+node app.js
+
+Visit: http://localhost:3000
+
+🐳 Docker Instructions
+
+1. Verify Docker Installation
+
+docker --version
+docker info
+
+2. Build Docker Image
+
+docker build -t my-docker-app:1.0 .
+
+3. Run Container
+
+docker run -d -p 3000:3000 --name my-running-app my-docker-app:1.0
+
+4. Check Running Containers
+
+docker ps
+
+5. View Logs
+
+docker logs my-running-app
+
+6. Stop & Remove Container
+
+docker stop my-running-app
+docker rm my-running-app
+
+7. Remove Image (Cleanup)
+
+docker rmi my-docker-app:1.0
+
+📖 Dockerfile Explained
+
+FROM node:18 → Base image with Node.js runtime
+
+WORKDIR /usr/src/app → Sets working directory inside container
+
+COPY package.json ./* → Copies dependency files
+
+RUN npm install → Installs dependencies
+
+COPY . . → Copies application code
+
+EXPOSE 3000 → Exposes port 3000
+
+CMD ["node", "app.js"] → Runs the app
+
+✅ Final Outcome
+
+Application runs successfully inside Docker.
+
+Intern understands containerization fundamentals:
+
+Writing Dockerfile
+
+Building images
+
+Running containers
+
+Inspecting logs
+
+Cleaning up resources
