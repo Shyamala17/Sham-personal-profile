@@ -1,51 +1,56 @@
 body {
   font-family: Arial, sans-serif;
-  margin: 40px;
+  background: #f4f4f4;
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
 }
 
-h2 {
-  margin-bottom: 20px;
-}
-
-.form-group {
-  margin-bottom: 15px;
-}
-
-label {
-  display: block;
-  margin-bottom: 5px;
-}
-
-input {
+.todo-container {
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
   width: 300px;
-  padding: 8px;
-  margin-bottom: 5px;
-  border: 2px solid #ccc;
-  border-radius: 4px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
 }
 
-button {
-  padding: 10px 20px;
-  background: #007BFF;
+.input-area {
+  display: flex;
+  gap: 10px;
+}
+
+#taskInput {
+  flex: 1;
+  padding: 8px;
+}
+
+#addBtn {
+  padding: 8px 12px;
+  cursor: pointer;
+}
+
+#taskList {
+  list-style: none;
+  padding: 0;
+  margin-top: 20px;
+}
+
+.task {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px;
+  border-bottom: 1px solid #ddd;
+}
+
+.completed {
+  text-decoration: line-through;
+  color: gray;
+}
+
+.delete-btn {
+  background: red;
   color: white;
   border: none;
   cursor: pointer;
-  border-radius: 4px;
-}
-
-button:hover {
-  background: #0056b3;
-}
-
-.error {
-  color: red;
-  font-size: 0.9em;
-}
-
-input.invalid {
-  border: 2px solid red;
-}
-
-input.success {
-  border: 2px solid green;
+  padding: 4px 8px;
 }
