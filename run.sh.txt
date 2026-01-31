@@ -1,0 +1,6 @@
+#!/bin/bash
+docker volume create demo_volume
+docker run -it --name volume_test \
+  -v demo_volume:/data \
+  ubuntu:22.04 bash
+

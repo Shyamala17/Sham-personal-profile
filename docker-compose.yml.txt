@@ -1,0 +1,17 @@
+version: "3.9"
+services:
+  app1:
+    image: ubuntu:22.04
+    command: bash -c "apt-get update && apt-get install -y iputils-ping && tail -f /dev/null"
+    networks:
+      - demo_net
+
+  app2:
+    image: ubuntu:22.04
+    command: bash -c "apt-get update && apt-get install -y iputils-ping && tail -f /dev/null"
+    networks:
+      - demo_net
+
+networks:
+  demo_net:
+    driver: bridge
