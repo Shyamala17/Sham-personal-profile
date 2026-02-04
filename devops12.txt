@@ -1,0 +1,47 @@
+# -------------------------------
+# 1. Connect to EC2 instance using SSH
+# -------------------------------
+cd ~/Downloads                # Go to folder where your .pem file is saved
+chmod 400 my-key.pem          # Secure the key file
+ssh -i "my-key.pem" ec2-user@<Public-IP>   # Connect to EC2 (replace <Public-IP>)
+
+# -------------------------------
+# 2. Update system and install basic packages
+# -------------------------------
+sudo yum update -y
+sudo yum install -y git curl wget unzip
+
+# -------------------------------
+# 3. Install Apache web server
+# -------------------------------
+sudo yum install -y httpd
+sudo systemctl start httpd
+sudo systemctl enable httpd
+
+# -------------------------------
+# 4. Configure Security Group inbound rules (manual in AWS Console)
+# -------------------------------
+# In AWS Console → EC2 → Security Groups → Edit inbound rules:
+#   - Allow SSH (port 22) from My IP
+#   - Allow HTTP (port 80) from Anywhere (0.0.0.0/0)
+#   - Allow HTTPS (port 443) from Anywhere (0.0.0.0/0)
+
+# -------------------------------
+# 5. Access application using Public IP
+# -------------------------------
+# Open browser and go to: http://<Public-IP>
+# You should see Apache test page
+
+# -------------------------------
+# 6. Stop or terminate instance safely (manual in AWS Console)
+# -------------------------------
+# In AWS Console → EC2 → Instances → Actions:
+#   - Stop instance (keeps data, stops billing compute hours)
+#   - Terminate instance (deletes server permanently)
+
+# -------------------------------
+# 7. Document cloud architecture (manual step)
+# -------------------------------
+# Create a simple diagram:
+#   [User Browser] → [Public IP / Security Group] → [EC2 Instance: Apache Web Server]
+# Save diagram in README.md or architecture.png for submission
