@@ -1,0 +1,128 @@
+# Persistent Dark/Light Theme Toggle
+
+A simple web project demonstrating a **persistent dark/light mode feature** with **clean theme management logic** using CSS variables, JavaScript, and LocalStorage.
+
+---
+
+## 🚀 Features
+- **CSS Variables**: Centralized color definitions for background, text, and accent.
+- **Two Theme Configurations**: Light (default) and Dark, managed via `[data-theme]`.
+- **Toggle Button**: Accessible button to switch between themes.
+- **JavaScript Logic**: Dynamically updates theme values by changing the `data-theme` attribute.
+- **Persistence**: User preference stored in `localStorage` and loaded on refresh.
+- **Accessibility**: Contrast ratios can be tested with tools like [WebAIM Contrast Checker](https://webaim.org/resources/contrastchecker/).
+- **Clean CSS**: Minimal duplication; only variables change between themes.
+
+---
+
+## 📂 Project Structure
+heme-toggle/
+│
+├── index.html                # Main HTML file
+├── css/
+│   └── style.css          # Theme variables and global styles
+└── js/
+└── script.js          # Theme toggle logic with LocalStorage
+
+Code
+
+---
+
+## 🛠️ Setup & Usage
+### 1. Clone or Download
+- Copy the project folder or download the `.zip`.
+
+### 2. Open in VS Code
+- Open the folder in VS Code.
+- Install the **Live Server** extension (optional but recommended).
+
+### 3. Run
+- Right-click `index.html` → **Open with Live Server**.
+- Or simply double-click `index.html` to open in your browser.
+
+### 4. Toggle Theme
+- Click the **🌞 / 🌙 button** to switch between light and dark mode.
+- Refresh the page → your preference persists.
+
+---
+
+## 📜 Example Code Snippets
+
+### CSS Variables
+```css
+:root {
+  --bg-color: #ffffff;
+  --text-color: #000000;
+  --accent-color: #0078d7;
+}
+
+[data-theme="dark"] {
+  --bg-color: #121212;
+  --text-color: #e0e0e0;
+  --accent-color: #bb86fc;
+}
+JavaScript Logic
+javascript
+const currentTheme = localStorage.getItem("theme");
+if (currentTheme) {
+  document.documentElement.setAttribute("data-theme", currentTheme);
+}
+
+document.getElementById("theme-toggle").addEventListener("click", () => {
+  let theme = document.documentElement.getAttribute("data-theme");
+  let newTheme = theme === "dark" ? "light" : "dark";
+  document.documentElement.setAttribute("data-theme", newTheme);
+  localStorage.setItem("theme", newTheme);
+});
+📘 Concepts Explained
+🔹 CSS Variables
+Custom properties defined with -- and accessed via var().
+
+Example: --bg-color: #fff; → background: var(--bg-color);
+
+They reduce duplication and allow dynamic updates.
+
+🔹 LocalStorage
+Browser storage for key-value pairs (~5MB).
+
+Data persists across sessions until cleared.
+
+Example: localStorage.setItem("theme", "dark");
+
+🔹 Why Store Preferences
+Improves UX by remembering user settings (theme, language, etc.).
+
+Reduces friction and increases personalization.
+
+🔹 Accessibility Concerns with Dark Mode
+Pros: reduces eye strain, saves battery, helps light-sensitive users.
+
+Cons: can cause halation for users with astigmatism.
+
+Always test contrast ratios against WCAG standards.
+
+🔹 Cookies vs LocalStorage
+Feature	Cookies	LocalStorage
+Size Limit	~4KB	~5MB
+Persistence	Can expire	Persistent until cleared
+Transmission	Sent with every HTTP request	Not sent to server
+Use Cases	Sessions, authentication	Preferences, client-side caching
+✅ Deliverables
+Persistent dark/light mode feature
+
+Clean theme management logic
+
+📌 Notes
+Works in any modern browser.
+
+No external dependencies required.
+
+Extendable: you can add more themes or customize variables easily.
+
+Code
+
+---
+
+✨ This README is professional, complete, and ready to ship with your project.  
+
+Would you like me to also add a **“Future Improvements” section** (liWould you like me to also add a **“Future Improvements” section** (like accessibility auto-checks, fancy toggle switch, or multiple theme support
