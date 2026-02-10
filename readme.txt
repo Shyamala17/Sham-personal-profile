@@ -1,101 +1,93 @@
-# 🚀 Node.js CI/CD Demo
-
-This repository demonstrates a **basic CI/CD pipeline** using **GitHub Actions** for a Node.js project.  
-It covers dependency installation, automation triggers, and proof of successful runs.
-
----
-
-## 📂 Project Structure
-
-ci-cd-demo/
-├── index.js
-├── package.json
-├── package-lock.json
-├── .github/
-│   └── workflows/
-│       └── ci.yml
-└── docs/
-└── screenshots/
-
----
-
-## ⚙️ CI Workflow (`.github/workflows/ci.yml`)
-
-```yaml
-name: Node.js CI
-
-on:
-  push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
-
-jobs:
-  build:
-    runs-on: ubuntu-latest
-
-    steps:
-    - name: Checkout code
-      uses: actions/checkout@v3
-
-    - name: Setup Node.js
-      uses: actions/setup-node@v3
-      with:
-        node-version: '18'
-
-    - name: Install dependencies
-      run: npm install
-
-    - name: Run tests
-      run: npm test
-
-    - name: Run app
-      run: npm start
-📦 Dependency Installation
-Locally in VS Code or Git Bash:
-
+Ansible Automation Project
+📂 Project Structure
+Code
+ansible-project/
+├── inventory/
+│   └── hosts.ini
+├── playbooks/
+│   └── site.yml
+└── roles/
+    └── webserver/
+        ├── tasks/main.yml
+        ├── handlers/main.yml
+        └── vars/main.yml
+⚙️ Setup Instructions
+1. Install Ansible
 bash
-npm init -y        # create package.json
-npm install express # install example dependency
-In GitHub Actions:
+sudo apt update
+sudo apt install ansible -y
+2. Create Project Structure
+bash
+mkdir -p ~/ansible-project/{inventory,playbooks,roles/webserver/{tasks,handlers,vars}}
+cd ~/ansible-project
+🗂 Inventory File
+inventory/hosts.ini
+
+ini
+[web]
+localhost ansible_connection=local
+📜 Playbook
+playbooks/site.yml
 
 yaml
-- name: Install dependencies
-  run: npm install
-👉 This automatically creates node_modules during the pipeline run.
-Note: node_modules is not pushed to GitHub — only package.json and package-lock.json are tracked.
+- name: Configure web servers
+  hosts: web
+  become: true
+  roles:
+    - webserver
+🔨 Role: Tasks
+roles/webserver/tasks/main.yml
 
-✅ Successful Pipeline Run
-The following screenshots demonstrate a successful CI pipeline run:
+yaml
+- name: Install web server package
+  ansible.builtin.package:
+    name: "{{ web_package }}"
+    state: present
+  notify: Restart web service
 
-Workflow Summary
-[Looks like the result wasn't safe to show. Let's switch things up and try something else!]
-Install Dependencies Step
-[Looks like the result wasn't safe to show. Let's switch things up and try something else!]
+- name: Ensure web service is running
+  ansible.builtin.service:
+    name: "{{ web_service }}"
+    state: started
+    enabled: true
+🔔 Role: Handlers
+roles/webserver/handlers/main.yml
 
-Final Success
-[Looks like the result wasn't safe to show. Let's switch things up and try something else!]
+yaml
+- name: Restart web service
+  ansible.builtin.service:
+    name: "{{ web_service }}"
+    state: restarted
+📦 Role: Variables
+roles/webserver/vars/main.yml
 
-🎯 Learning Outcomes for Intern
-Understands CI pipelines: GitHub Actions runs automatically after a push.
+yaml
+web_package: nginx
+web_service: nginx
+▶️ Run Playbook
+bash
+cd ~/ansible-project
+ansible-playbook -i inventory/hosts.ini playbooks/site.yml | tee output.log
+📜 Example Output
+Code
+PLAY [Configure web servers] ***************************************************
 
-Understands automation triggers: commits to main trigger the workflow.
+TASK [webserver : Install web server package] **********************************
+changed: [localhost]
 
-Sees proof of reproducibility: screenshots confirm each step executed successfully.
+TASK [webserver : Ensure web service is running] *******************************
+ok: [localhost]
 
+RUNNING HANDLER [webserver : Restart web service] ******************************
+changed: [localhost]
+
+PLAY RECAP *********************************************************************
+localhost                  : ok=3    changed=2    unreachable=0    failed=0
 📝 Notes
-Always commit package.json and package-lock.json.
+Idempotency: Running the playbook multiple times won’t reinstall packages unnecessarily.
 
-Never commit node_modules.
+Handlers: Restart service only when notified (e.g., after package install).
 
-Use npm audit regularly to check for security issues.
+Variables: Package and service names are configurable in vars/main.yml.
 
-Extend the workflow with linting, build steps, or deployment as needed.
-
-
----
-
-✅ This README is **complete**: it explains the workflow, shows commands, and has placeholders for screenshots.  
-
-Would you like me to also prepare a **minimal sample `index.js` + `package.json`** so your intern can run `npm start` and actually see the pipeline execute end‑to‑end?
-
+Logs: All execution logs are saved in output.log for easy review.
