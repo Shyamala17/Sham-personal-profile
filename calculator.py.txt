@@ -1,0 +1,107 @@
+Python 3.14.2 (tags/v3.14.2:df79316, Dec  5 2025, 17:18:21) [MSC v.1944 64 bit (AMD64)] on win32
+Enter "help" below or click "Help" above for more information.
+print("Hello, Python!")
+2 + 3 * 4
+exit()
+# calculator.py
+# Command-line calculator supporting +, -, *, /
+
+def add(x, y):
+    return x + y
+
+def subtract(x, y):
+    return x - y
+
+def multiply(x, y):
+    return x * y
+
+def divide(x, y):
+    if y == 0:
+        return "Error: Division by zero!"
+    return x / y
+
+def main():
+    print("=== Simple CLI Calculator ===")
+    print("Operations: +, -, *, /")
+    print("Type 'exit' to quit.\n")
+
+    while True:
+        choice = input("Enter operation (+, -, *, /) or 'exit': ").strip()
+
+        if choice.lower() == "exit":
+            print("Goodbye!")
+            break
+
+        if choice not in ["+", "-", "*", "/"]:
+            print("Invalid operation. Try again.\n")
+            continue
+
+        try:
+            num1 = float(input("Enter first number: "))
+            num2 = float(input("Enter second number: "))
+        except ValueError:
+            print("Invalid input. Please enter numeric values.\n")
+            continue
+
+        if choice == "+":
+            result = add(num1, num2)
+        elif choice == "-":
+            result = subtract(num1, num2)
+        elif choice == "*":
+            result = multiply(num1, num2)
+        elif
+        
+SyntaxError: multiple statements found while compiling a single statement
+# calculator.py
+# Command-line calculator supporting +, -, *, /
+
+def add(x, y):
+    return x + y
+
+def subtract(x, y):
+    return x - y
+
+def multiply(x, y):
+    return x * y
+
+... def divide(x, y):
+...     if y == 0:
+...         return "Error: Division by zero!"
+...     return x / y
+... 
+... def main():
+...     print("=== Simple CLI Calculator ===")
+...     print("Operations: +, -, *, /")
+...     print("Type 'exit' to quit.\n")
+... 
+...     while True:
+...         choice = input("Enter operation (+, -, *, /) or 'exit': ").strip()
+... 
+...         if choice.lower() == "exit":
+...             print("Goodbye!")
+...             break
+... 
+...         if choice not in ["+", "-", "*", "/"]:
+...             print("Invalid operation. Try again.\n")
+...             continue
+... 
+...         try:
+...             num1 = float(input("Enter first number: "))
+...             num2 = float(input("Enter second number: "))
+...         except ValueError:
+...             print("Invalid input. Please enter numeric values.\n")
+...             continue
+... 
+...         if choice == "+":
+...             result = add(num1, num2)
+...         elif choice == "-":
+...             result = subtract(num1, num2)
+...         elif choice == "*":
+...             result = multiply(num1, num2)
+...         elif choice == "/":
+...             result = divide(num1, num2)
+... 
+...         print(f"Result: {result}\n")
+... 
+... if __name__ == "__main__":
+...     main()
