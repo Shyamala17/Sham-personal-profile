@@ -2,21 +2,22 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Mini Vanilla JS SPA</title>
+  <title>REST API Dashboard</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <!-- Navigation Menu -->
-  <nav>
-    <a href="/" data-link>Home</a>
-    <a href="/about" data-link>About</a>
-    <a href="/contact" data-link>Contact</a>
-  </nav>
+  <h1>Product Dashboard</h1>
 
-  <!-- Main Content Container -->
-  <main id="app"></main>
+  <div id="filters">
+    <input type="text" id="search" placeholder="Search products..." oninput="applyFilters()">
+    <button onclick="sortByPrice(true)">Sort Price ↑</button>
+    <button onclick="sortByPrice(false)">Sort Price ↓</button>
+  </div>
 
-  <!-- JavaScript File -->
-  <script src="app.js"></script>
+  <div id="error"></div>
+  <div id="dashboard"></div>
+  <button id="loadMore" onclick="loadMore()">Load More</button>
+
+  <script src="script.js"></script>
 </body>
 </html>

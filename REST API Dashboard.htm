@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta charset="UTF-8">
+  <title>REST API Dashboard</title>
+  <link rel="stylesheet" href="REST%20API%20Dashboard_files/style.css">
+</head>
+<body data-new-gr-c-s-check-loaded="8.935.0" data-gr-ext-installed="">
+  <h1>Product Dashboard</h1>
+
+  <div id="filters">
+    <input type="text" id="search" placeholder="Search products..." oninput="applyFilters()">
+    <button onclick="sortByPrice(true)">Sort Price ↑</button>
+    <button onclick="sortByPrice(false)">Sort Price ↓</button>
+  </div>
+
+  <div id="error"></div>
+  <div id="dashboard">
+    <div class="card">
+      <h3>Samsung 49-Inch CHG90 144Hz Curved Gaming Monitor (LC49HG90DMNXZA) – Super Ultrawide Screen QLED </h3>
+      <p>electronics</p>
+      <p>$999.99</p>
+    </div>
+  
+    <div class="card">
+      <h3>John Hardy Women's Legends Naga Gold &amp; Silver Dragon Station Chain Bracelet</h3>
+      <p>jewelery</p>
+      <p>$695</p>
+    </div>
+  
+    <div class="card">
+      <h3>Acer SB220Q bi 21.5 inches Full HD (1920 x 1080) IPS Ultra-Thin</h3>
+      <p>electronics</p>
+      <p>$599</p>
+    </div>
+  
+    <div class="card">
+      <h3>Solid Gold Petite Micropave </h3>
+      <p>jewelery</p>
+      <p>$168</p>
+    </div>
+  
+    <div class="card">
+      <h3>WD 4TB Gaming Drive Works with Playstation 4 Portable External Hard Drive</h3>
+      <p>electronics</p>
+      <p>$114</p>
+    </div>
+  
+    <div class="card">
+      <h3>Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops</h3>
+      <p>men's clothing</p>
+      <p>$109.95</p>
+    </div>
+  </div>
+  <button id="loadMore" onclick="loadMore()">Load More</button>
+
+  <script src="REST%20API%20Dashboard_files/script.js"></script>
+<!-- Code injected by live-server -->
+<script>
+	// <![CDATA[  <-- For SVG support
+	if ('WebSocket' in window) {
+		(function () {
+			function refreshCSS() {
+				var sheets = [].slice.call(document.getElementsByTagName("link"));
+				var head = document.getElementsByTagName("head")[0];
+				for (var i = 0; i < sheets.length; ++i) {
+					var elem = sheets[i];
+					var parent = elem.parentElement || head;
+					parent.removeChild(elem);
+					var rel = elem.rel;
+					if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+						var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+						elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+					}
+					parent.appendChild(elem);
+				}
+			}
+			var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+			var address = protocol + window.location.host + window.location.pathname + '/ws';
+			var socket = new WebSocket(address);
+			socket.onmessage = function (msg) {
+				if (msg.data == 'reload') window.location.reload();
+				else if (msg.data == 'refreshcss') refreshCSS();
+			};
+			if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
+				console.log('Live reload enabled.');
+				sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
+			}
+		})();
+	}
+	else {
+		console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
+	}
+	// ]]>
+</script>
+
+
+</body><grammarly-desktop-integration data-grammarly-shadow-root="true"></grammarly-desktop-integration></html>

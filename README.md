@@ -1,68 +1,34 @@
-Validated Contact Form
-📌 Project Overview
-This project demonstrates a fully validated, accessible, and styled HTML5 contact form. It uses semantic HTML elements, built-in validation attributes, and clean CSS styling to ensure usability and compliance without relying on JavaScript.
+# REST API Data Dashboard
 
-🛠 Tools Used
-Primary: VS Code, Browser DevTools
+## Overview
+An interactive dashboard built with **HTML, CSS, and JavaScript (Fetch API)** that consumes a public REST API and displays product data with filtering, sorting, and pagination.
 
-Alternatives: CodePen, StackBlitz
+## Tools
+- Primary: VS Code, Fetch API, JavaScript
+- Alternatives: Axios (via CDN), CodePen
 
-🚀 Features
-Semantic structure using <form>, <input>, <textarea>, and <button>.
+## Features
+- Fetches live product data from [Fake Store API](https://fakestoreapi.com/)
+- Displays products in a responsive grid
+- Filtering by search input
+- Sorting by price (ascending/descending)
+- Pagination via "Load More" button
+- Error handling with user-friendly messages
+- Optimized DOM updates for performance
 
-Proper input types: text, email, tel.
+## API Endpoints
+- `GET https://fakestoreapi.com/products` → Returns product list in JSON
 
-HTML5 validation attributes: required, pattern, maxlength.
+## Data Flow
+API → Fetch → JSON → JavaScript Array → Rendered UI Components
 
-Accessibility with <label> linked to inputs.
+## How to Run
+1. Clone/download this repo.
+2. Open in **VS Code**.
+3. Install **Live Server extension**.
+4. Right-click `index.html` → **Open with Live Server**.
+5. Dashboard loads in browser with live API data.
 
-Logical grouping of form elements with .form-group.
-
-Clean, responsive CSS styling.
-
-Tested validation behavior without JavaScript.
-
-Default browser validation messages demonstrated.
-
-📂 Folder Structure
-Code
-validated-contact-form/
-│
-├── index.html      # Contact form markup
-├── style.css       # Styling for form and layout
-└── README.md       # Documentation
-📝 How to Run
-Clone or download the folder.
-
-Open index.html in your browser.
-
-Test validation by submitting empty fields or invalid inputs.
-
-Use Browser DevTools to inspect and debug styling/validation behavior.
-
-🔍 Validation Examples
-Name field: Required, max length 50.
-
-Email field: Must follow email format (example@domain.com).
-
-Phone field: Must be 10 digits (pattern="[0-9]{10}").
-
-Message field: Required, max length 300 characters.
-
-🎨 UI Preview
-Centered form with max-width for responsiveness.
-
-Styled inputs with focus states.
-
-Accessible labels and helper text.
-
-Modern button hover effect.
-
-📖 Learning Outcomes
-Understanding of HTML5 validation attributes.
-
-Awareness of accessibility best practices.
-
-Ability to style forms for clean, professional UI.
-
-Familiarity with default browser validation messages.
+## Deliverables
+- Interactive data dashboard consuming REST API
+- Real-world data handling and visualization logic

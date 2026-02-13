@@ -1,27 +1,24 @@
-/* Global Styles */
 body {
   font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
+  margin: 20px;
 }
-
-/* Navigation Bar */
-nav {
-  background: #333;
-  padding: 1em;
+#filters {
+  margin-bottom: 15px;
 }
-
-nav a {
-  color: white;
-  margin-right: 1em;
-  text-decoration: none;
+#dashboard {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 15px;
 }
-
-nav a:hover {
-  text-decoration: underline;
+.card {
+  border: 1px solid #ccc;
+  padding: 10px;
+  background: #f9f9f9;
 }
-
-/* Main Content Area */
-#app {
-  padding: 2em;
+#error {
+  color: red;
+  margin: 10px 0;
+}
+button {
+  margin: 5px;
 }
